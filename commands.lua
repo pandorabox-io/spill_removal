@@ -33,3 +33,19 @@ minetest.register_chatcommand("water_remove", {
     spill_removal.remove(pos, c_water_flowing, c_air, 32)
   end
 })
+
+if minetest.get_modpath("technic") then
+  local c_chernobylite = minetest.get_content_id("technic:chernobylite")
+
+  assert(c_chernobylite)
+
+  minetest.register_chatcommand("chernobylite_remove", {
+    description = "removes chernobylite in the current area",
+    privs = { chernobylite_remove = true },
+    func = function(name, param)
+      local player = minetest.get_player_by_name(name)
+      local pos = player:get_pos()
+      spill_removal.remove(pos, c_chernobylite, c_air, 32)
+    end
+  })
+end
