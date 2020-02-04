@@ -1,4 +1,4 @@
-local MP = minetest.get_modpath("lavastone")
+local MP = minetest.get_modpath("spill_removal")
 
 spill_removal = {}
 
