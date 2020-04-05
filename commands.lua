@@ -35,7 +35,7 @@ minetest.register_chatcommand("water_remove", {
 })
 
 if minetest.get_modpath("technic") then
-  local c_chernobylite = minetest.get_content_id("technic:chernobylite")
+  local c_chernobylite = minetest.get_content_id("technic:chernobylite_block")
 
   assert(c_chernobylite)
 
