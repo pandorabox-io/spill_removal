@@ -1,6 +1,8 @@
 
 function spill_removal.remove(pos, source_id, target_id, radius)
 
+  pos = vector.round(pos)
+
   local range = {x=radius,y=radius,z=radius}
 
   local pos1 = vector.subtract(pos, range)
