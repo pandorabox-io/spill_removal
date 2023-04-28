@@ -7,7 +7,7 @@ local c_air = minetest.get_content_id("air")
 minetest.register_chatcommand("lavastone_remove", {
   description = "removes lavastone in the current area",
   privs = { lavastone_remove = true },
-  func = function(name, param)
+  func = function(name)
     local player = minetest.get_player_by_name(name)
     local pos = player:get_pos()
     spill_removal.remove(pos, c_lavastone, c_air, 32)
@@ -17,7 +17,7 @@ minetest.register_chatcommand("lavastone_remove", {
 minetest.register_chatcommand("lava_remove", {
   description = "removes flowing lava in the current area",
   privs = { lava_remove = true },
-  func = function(name, param)
+  func = function(name)
     local player = minetest.get_player_by_name(name)
     local pos = player:get_pos()
     spill_removal.remove(pos, c_lava_flowing, c_air, 32)
@@ -27,7 +27,7 @@ minetest.register_chatcommand("lava_remove", {
 minetest.register_chatcommand("water_remove", {
   description = "removes flowing water in the current area",
   privs = { water_remove = true },
-  func = function(name, param)
+  func = function(name)
     local player = minetest.get_player_by_name(name)
     local pos = player:get_pos()
     spill_removal.remove(pos, c_water_flowing, c_air, 32)
@@ -42,7 +42,7 @@ if minetest.get_modpath("technic") then
   minetest.register_chatcommand("chernobylite_remove", {
     description = "removes chernobylite in the current area",
     privs = { chernobylite_remove = true },
-    func = function(name, param)
+    func = function(name)
       local player = minetest.get_player_by_name(name)
       local pos = player:get_pos()
       spill_removal.remove(pos, c_chernobylite, c_air, 32)
