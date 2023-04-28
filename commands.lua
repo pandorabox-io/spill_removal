@@ -1,16 +1,12 @@
 
-local c_lavastone = minetest.get_content_id("lavastone:lavastone")
-local c_lava_flowing = minetest.get_content_id("default:lava_flowing")
-local c_water_flowing = minetest.get_content_id("default:water_flowing")
-local c_air = minetest.get_content_id("air")
-
 minetest.register_chatcommand("lavastone_remove", {
   description = "removes lavastone in the current area",
   privs = { lavastone_remove = true },
   func = function(name)
     local player = minetest.get_player_by_name(name)
     local pos = player:get_pos()
-    spill_removal.remove(pos, c_lavastone, c_air, 32)
+    spill_removal.remove(pos, "lavastone:lavastone", nil, "air", 32)
+    spill_removal.remove(pos, "default:stone", spill_removal.cooled_param2, "air", 32)
   end
 })
 
@@ -20,7 +16,7 @@ minetest.register_chatcommand("lava_remove", {
   func = function(name)
     local player = minetest.get_player_by_name(name)
     local pos = player:get_pos()
-    spill_removal.remove(pos, c_lava_flowing, c_air, 32)
+    spill_removal.remove(pos, "default:lava_flowing", nil, "air", 32)
   end
 })
 
@@ -30,7 +26,7 @@ minetest.register_chatcommand("water_remove", {
   func = function(name)
     local player = minetest.get_player_by_name(name)
     local pos = player:get_pos()
-    spill_removal.remove(pos, c_water_flowing, c_air, 32)
+    spill_removal.remove(pos, "default:water_flowing", nil, "air", 32)
   end
 })
 
@@ -45,7 +41,7 @@ if minetest.get_modpath("technic") then
     func = function(name)
       local player = minetest.get_player_by_name(name)
       local pos = player:get_pos()
-      spill_removal.remove(pos, c_chernobylite, c_air, 32)
+      spill_removal.remove(pos, c_chernobylite, nil, "air", 32)
     end
   })
 end
