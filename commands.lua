@@ -41,7 +41,7 @@ if minetest.get_modpath("technic") then
     func = function(name)
       local player = minetest.get_player_by_name(name)
       local pos = player:get_pos()
-      spill_removal.remove(pos, c_chernobylite, nil, "air", 32)
+      spill_removal.remove(pos, "technic:chernobylite_block", nil, "air", 32)
     end
   })
 end
